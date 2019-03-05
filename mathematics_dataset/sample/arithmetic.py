@@ -1,4 +1,4 @@
-# Copyright 2019 DeepMind Technologies Limited.
+# Copyright 2018 DeepMind Technologies Limited.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -54,7 +54,8 @@ class _SampleArgs(collections.namedtuple('SampleArgs', ('count', 'entropy'))):
       assert self.entropy == 0
       entropies = np.zeros(len(count_split))
     else:
-      entropies = np.random.dirichlet(count_split) * self.entropy
+      entropies = (
+          np.random.dirichlet(np.maximum(1e-9, count_split)) * self.entropy)
     return [_SampleArgs(op_count, entropy)
             for op_count, entropy in zip(count_split, entropies)]
 

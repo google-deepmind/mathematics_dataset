@@ -1,4 +1,4 @@
-# Copyright 2019 DeepMind Technologies Limited.
+# Copyright 2018 DeepMind Technologies Limited.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -249,7 +249,7 @@ def expand_coefficients(coefficients, entropy, length=None):
 
   is_zero_flat = np.reshape(coefficients, [-1]) == 0
   counts = expanded_coefficient_counts(length, is_zero=is_zero_flat)
-  coeffs_entropy = entropy * np.random.dirichlet(np.maximum(0, counts - 1))
+  coeffs_entropy = entropy * np.random.dirichlet(np.maximum(1e-9, counts - 1))
   counts = np.reshape(counts, shape)
   coeffs_entropy = np.reshape(coeffs_entropy, shape)
 

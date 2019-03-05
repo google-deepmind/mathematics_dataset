@@ -1,4 +1,4 @@
-# Copyright 2019 DeepMind Technologies Limited.
+# Copyright 2018 DeepMind Technologies Limited.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -135,7 +135,8 @@ class SampleArgs(
         raise ValueError('Unused entropy')
       entropies = np.zeros(count)
     else:
-      entropies = self.entropy * np.random.dirichlet(module_counts)
+      entropies = self.entropy * np.random.dirichlet(
+          np.maximum(1e-9, module_counts))
 
     sample_args = []
     for i, num_modules in enumerate(module_counts):

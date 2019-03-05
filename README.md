@@ -19,39 +19,33 @@ In addition to the generation code, **pre-generated** data files are available.
   uniformly from these training datasets to obtain the results reported in the
   paper.
 
-## Open-source version
+## Getting the source
 
-### Getting the source
+### PyPI
 
-Clone the mathematics_dataset source code:
+The easiest way to get the source is to use pip:
 
 ```shell
-git clone https://github.com/deepmind/mathematics_dataset
+$ pip install mathematics_dataset
 ```
 
-### Required dependencies
+### From GitHub
 
-You will need to install some python packages. In particular this package
-depends on absl, numpy, six, and sympy.
-
-For example, these packages can be installed via pip:
+Alternately you can get the source by cloning the mathematics_dataset
+repository:
 
 ```shell
-pip install absl-py numpy six sympy
+$ git clone https://github.com/deepmind/mathematics_dataset
+$ pip install --upgrade mathematics_dataset/
 ```
 
-You will also need a recent version of bazel. If not, follow
-[these directions](https://bazel.build/versions/master/docs/install.html).
+## Generating examples
 
-### Generating examples
-
-For debugging, generated examples can be printed to stdout via the `generate`
-script. For example:
+Generated examples can be printed to stdout via the `generate` script. For
+example:
 
 ```shell
-cd mathematics_dataset
-bazel build -c opt mathematics_dataset:generate
-./bazel-bin/mathematics_dataset/generate --filter=linear_1d
+python -m mathematics_dataset.generate --filter=linear_1d
 ```
 
 will generate example (question, answer) pairs for solving linear equations in

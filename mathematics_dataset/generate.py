@@ -1,4 +1,4 @@
-# Copyright 2019 DeepMind Technologies Limited.
+# Copyright 2018 DeepMind Technologies Limited.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import textwrap
 from absl import app
 from absl import flags
 from absl import logging
-
+from mathematics_dataset import generate_settings
 from mathematics_dataset.modules import modules
 import six
 from six.moves import range
@@ -33,8 +33,6 @@ from six.moves import range
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_integer('max_question_length', 160, 'Max chars in a question')
-flags.DEFINE_integer('max_answer_length', 30, 'Max chars in an answer')
 flags.DEFINE_string('filter', '', 'restrict to matching module names')
 flags.DEFINE_integer('per_train_module', 10, 'Num of examples per train module')
 flags.DEFINE_integer('per_test_module', 10, 'Num of examples per test module')
@@ -133,13 +131,13 @@ def sample_from_module(module):
   while True:
     problem = module()
     question = str(problem.question)
-    if len(question) > FLAGS.max_question_length:
+    if len(question) > generate_settings.MAX_QUESTION_LENGTH:
       num_dropped += 1
       if FLAGS.show_dropped:
         logging.warning('Dropping question: %s', question)
       continue
     answer = str(problem.answer)
-    if len(answer) > FLAGS.max_answer_length:
+    if len(answer) > generate_settings.MAX_ANSWER_LENGTH:
       num_dropped += 1
       if FLAGS.show_dropped:
         logging.warning('Dropping question with answer: %s', answer)

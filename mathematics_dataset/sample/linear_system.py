@@ -1,4 +1,4 @@
-# Copyright 2019 DeepMind Technologies Limited.
+# Copyright 2018 DeepMind Technologies Limited.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -121,7 +121,7 @@ def linear_system(variables, solutions, entropy, non_trivial_in=None,
       length=length, is_zero=is_zero)
 
   entropies = (1 - frac_entropy_matrix) * entropy * np.random.dirichlet(
-      np.maximum(0, counts - 1))
+      np.maximum(1e-9, counts - 1))
 
   terms = []
   for i in range(len(flattened)):
