@@ -162,8 +162,8 @@ def main(unused_argv):
         problem, extra_dropped = sample_from_module(module)
         num_dropped += extra_dropped
         text = text_wrapper.fill(
-            u'{}  \033[92m{}\033[0m'.format(problem.question, problem.answer))
-        print(text.encode('utf8'))
+            '{}  \033[92m{}\033[0m'.format(problem.question, problem.answer))
+        print(text)
       if num_dropped > 0:
         logging.warning('Dropped %d examples', num_dropped)
 

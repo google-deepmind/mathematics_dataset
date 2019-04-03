@@ -34,7 +34,7 @@ Original paper: Analysing Mathematical Reasoning Abilities of Neural Models
 
 setup(
     name='mathematics_dataset',
-    version='1.0',
+    version='1.0.1',
     description='A synthetic dataset of school-level mathematics questions',
     long_description=description,
     author='DeepMind',
