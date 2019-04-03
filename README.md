@@ -32,8 +32,7 @@ Answer: 1/110
 
 ## Pre-generated data
 
-[Pre-generated files]
-(https://console.cloud.google.com/storage/browser/mathematics-dataset)
+[Pre-generated files](https://console.cloud.google.com/storage/browser/mathematics-dataset)
 
 ### Version 1.0
 
