@@ -117,6 +117,19 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 of question types at roughly school-level difficulty. This is designed to test
 the mathematical learning and algebraic reasoning skills of learning models.\n
 \n
+## Example questions\n
+\n
+```\n
+Question: Solve -42*r + 27*c = -1167 and 130*r + 4*c = 372 for r.\n
+Answer: 4\n
+\n
+Question: Calculate -841880142.544 + 411127.\n
+Answer: -841469015.544\n
+\n
+Question: Let x(g) = 9*g + 1. Let q(c) = 2*c + 1. Let f(i) = 3*i - 39. Let w(j) = q(x(j)). Calculate f(w(a)).\n
+Answer: 54*a - 30\n
+```\n
+\n
 It contains 2 million
 (question, answer) pairs per module, with questions limited to 160 characters in
 length, and answers to 30 characters in length. Note the training data for each
