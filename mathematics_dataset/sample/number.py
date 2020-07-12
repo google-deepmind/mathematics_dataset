@@ -141,7 +141,7 @@ def entropy_of_value(value):
 
 
 def is_integer(value):
-  return isinstance(value, (int, np.int64, sympy.Integer))
+  return isinstance(value, (int, np.int64, np.int32, sympy.Integer))
 
 
 def is_positive_integer(value):

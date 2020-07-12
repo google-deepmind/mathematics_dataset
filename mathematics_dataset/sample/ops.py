@@ -202,7 +202,8 @@ class Constant(Op):
     elif (isinstance(self._value, int)
           or isinstance(self._value, sympy.Integer)
           or isinstance(self._value, display.Decimal)
-          or isinstance(self._value, np.int64)):
+          or isinstance(self._value, np.int64)
+          or isinstance(self._value, np.int32)):
       return self._value >= 0
     elif isinstance(self._value, sympy.Rational):
       return False
