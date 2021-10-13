@@ -54,7 +54,7 @@ class ContextTest(absltest.TestCase):
 class EntityTest(absltest.TestCase):
 
   def testInit_valueErrorIfSelfAndHandle(self):
-    with self.assertRaisesRegexp(ValueError, 'Cannot specify handle'):
+    with self.assertRaisesRegex(self, ValueError, 'Cannot specify handle'):
       composition.Entity(context=composition.Context(),
                          value=0,
                          description='Something with {self}. ',
