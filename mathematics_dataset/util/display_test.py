@@ -81,7 +81,7 @@ class DecimalTest(absltest.TestCase):
 
   def testInt_errorIfNonInt(self):
     decimal = display.Decimal(sympy.Rational(1, 2))
-    with self.assertRaisesRegexp(TypeError, 'Cannot represent'):
+    with self.assertRaisesRegex(self, TypeError, 'Cannot represent'):
       int(decimal)
 
   def testComparison(self):
@@ -175,7 +175,7 @@ class StringOrdinalTest(absltest.TestCase):
     self.assertEqual(str(ordinal), 'tenth')
 
   def testCreate_errorIfNegative(self):
-    with self.assertRaisesRegexp(ValueError, 'Unsupported ordinal'):
+    with self.assertRaisesRegex(self, ValueError, 'Unsupported ordinal'):
       display.StringOrdinal(-1)
 
 
