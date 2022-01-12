@@ -47,7 +47,7 @@ setup(
         'absl-py>=0.1.0',
         'numpy>=1.10',
         'six',
-        'sympy>=1.2',
+        'sympy>=1.9',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
