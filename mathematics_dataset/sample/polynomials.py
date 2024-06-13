@@ -30,7 +30,7 @@ import six
 from six.moves import range
 from six.moves import zip
 import sympy
-from sympy.solvers.diophantine import base_solution_linear as diophantine_solve_linear_2d
+from sympy.solvers.diophantine.diophantine import base_solution_linear as diophantine_solve_linear_2d
 
 
 def expanded_coefficient_counts(length, is_zero):
@@ -238,7 +238,7 @@ def expand_coefficients(coefficients, entropy, length=None):
   coefficients = np.asarray(coefficients)
   shape = coefficients.shape
 
-  expanded_coefficients = np.empty(shape, dtype=np.object)
+  expanded_coefficients = np.empty(shape, dtype=object)
 
   min_length = np.count_nonzero(coefficients) + 2
   if length is None:
@@ -363,8 +363,8 @@ def coefficients_linear_split(coefficients, entropy):
   if random.choice([False, True]):
     a, b = b, a
 
-  coefficients_1 = np.zeros(coefficients.shape, dtype=np.object)
-  coefficients_2 = np.zeros(coefficients.shape, dtype=np.object)
+  coefficients_1 = np.zeros(coefficients.shape, dtype=object)
+  coefficients_2 = np.zeros(coefficients.shape, dtype=object)
 
   for index, coefficient in enumerate(coefficients):
     entropy_coeff = entropy_coefficients[index]
