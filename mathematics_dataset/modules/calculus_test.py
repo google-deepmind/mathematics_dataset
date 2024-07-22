@@ -20,10 +20,11 @@ from __future__ import print_function
 
 # Dependency imports
 from mathematics_dataset.modules import calculus
-import tensorflow as tf
+# import tensorflow as tf
+from absl.testing import absltest
 
 
-class CalculusTest(tf.test.TestCase):
+class CalculusTest(absltest.TestCase):
 
     def testSampleIntegrand(self):
         # y + 2*x + 3*x**2
@@ -37,8 +38,9 @@ class CalculusTest(tf.test.TestCase):
             coefficients, derivative_order, derivative_axis, entropy
         )
         result = result[1:, :]  # ignore random constant terms
-        self.assertAllEqual(result, expected)
+        self.assertListEqual(result.tolist(), expected)
 
 
 if __name__ == "__main__":
-    tf.test.main()
+    # tf.test.main()
+    absltest.main()
