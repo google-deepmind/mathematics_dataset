@@ -44,10 +44,10 @@ setup(
     url='https://github.com/deepmind/mathematics_dataset',
     packages=find_packages(),
     install_requires=[
-        'absl-py>=0.1.0',
-        'numpy>=1.10',
-        'six',
-        'sympy>=1.2',
+        'absl-py>=0.1.0,<0.10',
+        'numpy>=1.10,<1.19',
+        'six>=1.0,<2.0',
+        'sympy>=1.2,<1.6',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
