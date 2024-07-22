@@ -22,6 +22,6 @@ import hashlib
 
 
 def is_train(value):
-  """Returns whether `value` should be used in a training question."""
-  value_as_string = str(value).encode('utf-8')
-  return int(hashlib.md5(value_as_string).hexdigest(), 16) % 2 == 0
+    """Returns whether `value` should be used in a training question."""
+    value_as_string = str(value).encode("utf-8")
+    return int(hashlib.md5(value_as_string).hexdigest(), 16) % 2 == 0

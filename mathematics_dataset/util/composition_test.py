@@ -26,40 +26,42 @@ import sympy
 
 class FunctionHandleTest(absltest.TestCase):
 
-  def testApply(self):
-    handle = composition.FunctionHandle('f', 'g')
-    applied = handle.apply(*sympy.symbols('x y'))
-    self.assertEqual(str(applied), 'f(g(x, y))')
-    applied = handle.apply(sympy.symbols('x'))
-    self.assertEqual(str(applied), 'f(g(x))')
+    def testApply(self):
+        handle = composition.FunctionHandle("f", "g")
+        applied = handle.apply(*sympy.symbols("x y"))
+        self.assertEqual(str(applied), "f(g(x, y))")
+        applied = handle.apply(sympy.symbols("x"))
+        self.assertEqual(str(applied), "f(g(x))")
 
 
 class ContextTest(absltest.TestCase):
 
-  def testPeel(self):
-    sample_args = composition.SampleArgs(4, 3.0)
-    entropy, new_sample_args = sample_args.peel()
-    self.assertAlmostEqual(entropy, 0.75)
-    self.assertEqual(new_sample_args.num_modules, 4)
-    self.assertAlmostEqual(new_sample_args.entropy, 2.25)
+    def testPeel(self):
+        sample_args = composition.SampleArgs(4, 3.0)
+        entropy, new_sample_args = sample_args.peel()
+        self.assertAlmostEqual(entropy, 0.75)
+        self.assertEqual(new_sample_args.num_modules, 4)
+        self.assertAlmostEqual(new_sample_args.entropy, 2.25)
 
-  def testSplit(self):
-    sample_args = composition.SampleArgs(4, 5.0)
-    children = sample_args.split(2)
-    self.assertLen(children, 2)
-    self.assertEqual(sum([child.num_modules for child in children]), 3)
-    self.assertAlmostEqual(sum([child.entropy for child in children]), 5.0)
+    def testSplit(self):
+        sample_args = composition.SampleArgs(4, 5.0)
+        children = sample_args.split(2)
+        self.assertLen(children, 2)
+        self.assertEqual(sum([child.num_modules for child in children]), 3)
+        self.assertAlmostEqual(sum([child.entropy for child in children]), 5.0)
 
 
 class EntityTest(absltest.TestCase):
 
-  def testInit_valueErrorIfSelfAndHandle(self):
-    with self.assertRaisesRegex(self, ValueError, 'Cannot specify handle'):
-      composition.Entity(context=composition.Context(),
-                         value=0,
-                         description='Something with {self}. ',
-                         handle='additional')
+    def testInit_valueErrorIfSelfAndHandle(self):
+        with self.assertRaisesRegex(self, ValueError, "Cannot specify handle"):
+            composition.Entity(
+                context=composition.Context(),
+                value=0,
+                description="Something with {self}. ",
+                handle="additional",
+            )
 
 
-if __name__ == '__main__':
-  absltest.main()
+if __name__ == "__main__":
+    absltest.main()

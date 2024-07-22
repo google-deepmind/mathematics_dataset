@@ -30,29 +30,27 @@ import six
 
 
 all_ = {
-    'algebra': algebra,
-    'arithmetic': arithmetic,
-    'calculus': calculus,
-    'comparison': comparison,
-    'measurement': measurement,
-    'numbers': numbers,
-    'polynomials': polynomials,
-    'probability': probability,
+    "algebra": algebra,
+    "arithmetic": arithmetic,
+    "calculus": calculus,
+    "comparison": comparison,
+    "measurement": measurement,
+    "numbers": numbers,
+    "polynomials": polynomials,
+    "probability": probability,
 }
 
 
 def train(entropy_fn):
-  """Returns dict of training modules."""
-  return {
-      name: module.train(entropy_fn) for name, module in six.iteritems(all_)
-  }
+    """Returns dict of training modules."""
+    return {name: module.train(entropy_fn) for name, module in six.iteritems(all_)}
 
 
 def test():
-  """Returns dict of testing modules."""
-  return {name: module.test() for name, module in six.iteritems(all_)}
+    """Returns dict of testing modules."""
+    return {name: module.test() for name, module in six.iteritems(all_)}
 
 
 def test_extra():
-  """Returns dict of extrapolation testing modules."""
-  return {name: module.test_extra() for name, module in six.iteritems(all_)}
+    """Returns dict of extrapolation testing modules."""
+    return {name: module.test_extra() for name, module in six.iteritems(all_)}
