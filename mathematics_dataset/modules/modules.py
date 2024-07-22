@@ -23,7 +23,7 @@ from mathematics_dataset.modules import arithmetic
 from mathematics_dataset.modules import calculus
 from mathematics_dataset.modules import comparison
 from mathematics_dataset.modules import measurement
-from mathematics_dataset.modules import numbers
+from mathematics_dataset.modules import md_numbers
 from mathematics_dataset.modules import polynomials
 from mathematics_dataset.modules import probability
 import six
@@ -35,7 +35,7 @@ all_ = {
     "calculus": calculus,
     "comparison": comparison,
     "measurement": measurement,
-    "numbers": numbers,
+    "numbers": md_numbers,
     "polynomials": polynomials,
     "probability": probability,
 }
